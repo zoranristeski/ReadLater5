@@ -1,0 +1,38 @@
+﻿@model ReadLater5.Models.BookmarkCreateViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bookmark</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.LabelFor(model => model.Bookmark.URL, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.URL)
+        </dd>
+        <dd>
+            @Html.LabelFor(model => model.Bookmark.ShortDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.ShortDescription)
+        </dd>
+        <dd>
+            @Html.LabelFor(model => model.SelectedCategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.Category.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

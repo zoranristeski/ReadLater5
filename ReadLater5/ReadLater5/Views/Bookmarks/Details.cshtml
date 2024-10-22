@@ -1,0 +1,31 @@
+﻿@model ReadLater5.Models.BookmarkCreateViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bookmark</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.LabelFor(model => model.Bookmark.URL, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.URL)
+        </dd>
+        <dd>
+            @Html.LabelFor(model => model.Bookmark.ShortDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.ShortDescription)
+        </dd>
+        <dd>
+            @Html.LabelFor(model => model.SelectedCategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Bookmark.Category.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Bookmark.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
